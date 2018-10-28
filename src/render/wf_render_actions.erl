@@ -1,7 +1,7 @@
 -module(wf_render_actions).
 -author('Andrew Zadorozhny').
 -include_lib ("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_action(Action) ->
     Module = element(#action.module,Action),

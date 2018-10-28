@@ -1,7 +1,7 @@
 -module(element_legend).
 -author('Rusty Klophaus').
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record) -> 
   wf_tags:emit_tag(<<"legend">>, nitro:render(Record#legend.body), [

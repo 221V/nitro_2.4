@@ -1,7 +1,7 @@
 -module(element_radio).
 -author('Rusty Klophaus').
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record) ->
     ID = case Record#radio.id of

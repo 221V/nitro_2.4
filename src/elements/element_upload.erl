@@ -1,8 +1,8 @@
 -module(element_upload).
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 -include_lib("nitro/include/nitro.hrl").
 
-render_element(#upload{id=Id} = U) ->
+render_element(#upload{id=Id}) ->
     Uid = case Id of undefined -> wf:temp_id(); I -> I end,
     wf:wire("ftp_file=undefined;"),
     bind(ftp_open,  click,  wf:f("qi('~s').click(); event.preventDefault();", [wf:to_list(Uid)])),

@@ -1,6 +1,6 @@
 -module(nitro).
 -include("nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 -behaviour(application).
 -export([start/2, stop/1, init/1]).
 
@@ -65,7 +65,7 @@ depickle(SerializedData, TTLSeconds) -> ?PICKLER:depickle(SerializedData, TTLSec
 render(X) -> wf_render:render(X).
 wire(Actions) -> action_wire:wire(Actions).
 
-unique_integer() -> try erlang:unique_integer() catch _:_ -> {MS,S,US} = erlang:now(), (MS*1000000+S)*1000000+US end.
+unique_integer() -> try erlang:unique_integer() catch _:_ -> {MS,S,US} = erlang:timestamp(), (MS*1000000+S)*1000000+US end.
 temp_id() -> "auto" ++ integer_to_list(unique_integer() rem 1000000).
 
 html_encode(L,Fun) when is_function(Fun) -> Fun(L);

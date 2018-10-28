@@ -1,6 +1,6 @@
 -module(wf_render).
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_item(E) when element(2,E) == element -> wf_render_elements:render_element(E);
 render_item(E) when element(2,E) == action  -> wf_render_actions:render_action(E);

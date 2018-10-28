@@ -2,7 +2,7 @@
 -author('Maxim Sokhatsky').
 -author('Andrey Martemyanov').
 -include_lib ("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 -record(ev, { module, msg, trigger, name }).
 -record(cx, { handlers, actions, req, module, lang, path, session, formatter, params, form, state=[] }).

@@ -1,5 +1,5 @@
 -module(nitro_pickle).
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 pickle(Data) -> base64:encode(term_to_binary({Data, os:timestamp()}, [compressed])).
 depickle(PickledData) ->

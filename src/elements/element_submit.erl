@@ -1,7 +1,7 @@
 -module (element_submit).
 -author('Andrew Zadorozhny').
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record) ->
     ID = case Record#submit.id of undefined -> nitro:temp_id(); I->I end,

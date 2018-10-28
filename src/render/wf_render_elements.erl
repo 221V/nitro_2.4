@@ -1,7 +1,7 @@
 -module (wf_render_elements).
 -author('Maxim Sokhatsky').
 -include_lib ("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(E) when is_list(E) -> E;
 render_element(Element) when is_tuple(Element) ->
@@ -12,13 +12,13 @@ render_element(Element) when is_tuple(Element) ->
     case element(#element.actions,Element) of undefined -> skip; Actions -> nitro:wire(Actions) end,
     Tag = case element(#element.html_tag,Element) of undefined -> nitro:to_binary(element(1, Element)); T -> T end,
     case element(#element.validation,Element) of
-         [] -> skip;
-         Code ->
-         nitro:wire(nitro:f("{var name='~s'; qi(name)"
-           ".addEventListener('validation',"
+      [] -> skip;
+      Code ->
+        nitro:wire(nitro:f("{var name='~s'; qi(name)"
+          ".addEventListener('validation',"
               "function(e) { if (!(~s)) e.preventDefault(); });"
-              "qi(name).validation = true;}",[Id,Code]));
-         _ -> skip end,
+              "qi(name).validation = true;}",[Id,Code]))
+    end,
     case element(#element.module,Element) of
         undefined ->
 	    default_render(Tag, Element);

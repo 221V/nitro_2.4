@@ -1,6 +1,6 @@
 -module(element_dropdown).
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record = #dropdown{}) -> 
     ID = case Record#dropdown.id of undefined -> nitro:temp_id(); I->I end,

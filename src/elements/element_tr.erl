@@ -1,6 +1,6 @@
 -module(element_tr).
 -include("nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record = #tr{postback= Postback}) ->
   Id = case Record#tr.id of undefined -> nitro:temp_id(); I->I end,

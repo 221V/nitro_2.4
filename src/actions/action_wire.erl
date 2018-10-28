@@ -1,7 +1,7 @@
 -module(action_wire).
 -author('Maxim Sokhatsky').
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_action(#wire{actions=Actions}) -> nitro:render(Actions);
 render_action(S) when is_list(S) -> S;

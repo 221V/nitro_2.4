@@ -1,7 +1,7 @@
 -module(element_dtl).
 -author('Maxim Sokhatsky').
 -include("nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record=#dtl{}) ->
     M = list_to_atom(nitro:to_list(Record#dtl.file) ++ "_view"),

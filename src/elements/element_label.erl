@@ -1,7 +1,7 @@
 -module(element_label).
 -author('Rusty Klophaus').
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record) -> 
   wf_tags:emit_tag(<<"label">>, nitro:render(Record#label.body), [

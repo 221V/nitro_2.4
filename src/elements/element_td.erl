@@ -1,6 +1,6 @@
 -module(element_td).
 -include("nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record) ->
   wf_tags:emit_tag(<<"td">>, nitro:render(Record#td.body), [

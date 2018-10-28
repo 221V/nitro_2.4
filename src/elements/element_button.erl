@@ -1,7 +1,7 @@
 -module(element_button).
 -author('Andrew Zadorozhny').
 -include_lib("nitro/include/nitro.hrl").
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 render_element(Record) ->
     Id = case Record#button.postback of
